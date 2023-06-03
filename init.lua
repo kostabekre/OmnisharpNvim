@@ -17,9 +17,10 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
     'OmniSharp/omnisharp-vim', -- For C# and unity
     'dense-analysis/ale', -- Checks code for errors
-    -- 'nvim-treesitter/nvim-treesitter', -- TODO: check for difference with omnisharp-vim
+    --'nvim-treesitter/nvim-treesitter',
     'mbbill/undotree', -- history of undos
-    'junegunn/fzf', -- fuzzy finder
+    {'junegunn/fzf', build= "fzf#install"}, -- fuzzy finder
+    'junegunn/fzf.vim',
     'terrortylor/nvim-comment', --comment
     'windwp/nvim-autopairs', 
     'kylechui/nvim-surround',
@@ -30,9 +31,18 @@ require('lazy').setup({
     'honza/vim-snippets',
     {'Shougo/vimproc.vim', build = "make"},
     'tpope/vim-dispatch', -- async complier
+    -- 'Eandrju/cellular-automaton.nvim', -- just for fun
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        init = function()
+            vim.o.timeout = true
+            vim.o.timeoutlen = 300
+        end,
+        opts = {
+            -- your configuration comes here
+            -- or leave it empty to use the default settings
+            -- refer to the configuration section below
+        }
+    }
 })
-
---Set omnisharp
-vim.g.ale_lingers = {cs = 'OmniSharp'}
-vim.g.OmniSharp_selector_ui = 'fzf'
-vim.g.OmniSharp_selector_findusages = 'fzf'
