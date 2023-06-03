@@ -1,3 +1,7 @@
+let g:ale_lingers = {'cs' : ['OmniSharp']}
+let g:OmniSharp_selector_ui = 'fzf' 
+let g:OmniSharp_selector_findusages = 'fzf'
+
 " Don't autoselect first omnicomplete option, show options even if there is only
 " one (so the preview documentation is accessible). Remove 'preview', 'popup'
 " and 'popuphidden' if you don't want to see any documentation whatsoever.
@@ -13,6 +17,11 @@ else
   set completeopt=longest,menuone,preview
   " Set desired preview window height for viewing documentation.
   set previewheight=5
+endif
+
+if has('unix')
+    let g:OmniSharp_server_use_mono = 1
+    let g:OmniSharp_server_use_net6 = 1
 endif
 
 augroup omnisharp_commands
