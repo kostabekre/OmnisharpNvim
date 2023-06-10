@@ -21,7 +21,7 @@ require('lazy').setup({
     'mbbill/undotree', -- history of undos
     {'junegunn/fzf', build= "fzf#install"}, -- fuzzy finder
     'junegunn/fzf.vim',
-    'terrortylor/nvim-comment', --comment
+    'tpope/vim-commentary', --comment
     'windwp/nvim-autopairs', 
     'kylechui/nvim-surround',
     '4513ECHO/vim-colors-hatsunemiku', -- color 
@@ -29,15 +29,16 @@ require('lazy').setup({
     {'neoclide/coc.nvim', branch="master", build = "yarn install --frozen-lockfile"}, -- autocompletion
     'SirVer/ultisnips',
     'honza/vim-snippets',
+    'neoclide/coc-snippets',
     {'Shougo/vimproc.vim', build = "make"},
     'tpope/vim-dispatch', -- async complier
     -- 'Eandrju/cellular-automaton.nvim', -- just for fun
     {
         "folke/which-key.nvim",
-        event = "VeryLazy",
+        -- event = "VeryLazy",
         init = function()
             vim.o.timeout = true
-            vim.o.timeoutlen = 300
+            vim.o.timeoutlen = 500
         end,
     }
 })
