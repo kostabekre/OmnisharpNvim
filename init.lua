@@ -15,27 +15,54 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup({
-    'OmniSharp/omnisharp-vim', -- For C# and unity
-    'dense-analysis/ale', -- Checks code for errors
-    --'nvim-treesitter/nvim-treesitter',
-    'mbbill/undotree', -- history of undos
-    {'junegunn/fzf', build= "fzf#install"}, -- fuzzy finder
+    --
+    -- C# related
+    --
+    -- the main C# plugin
+    'OmniSharp/omnisharp-vim', 
+    -- Checks code for errors
+    'dense-analysis/ale', 
+    -- fuzzy finder
+    'junegunn/fzf', 
     'junegunn/fzf.vim',
-    'tpope/vim-commentary', --comment
+    -- autocompletion source engine
+    'ncm2/ncm2',
+    'roxma/nvim-yarp',
+    'ncm2/ncm2-bufword',
+    'ncm2/ncm2-path',
+    'ncm2/ncm2-ultisnips',
+    -- snippet support
+    'SirVer/ultisnips',
+    -- async complier
+    'tpope/vim-dispatch', 
+    {'Shougo/vimproc.vim', build = "make"},
+    -- Mappings, code-actions available flag and statusline integration 
+    -- TODO analyze
+    -- 'nickspoons/vim-sharpenup',
+    -- Statusline
+    'itchyny/lightline.vim',
+    'shinchu/lightline-gruvbox.vim',
+    'maximbaz/lightline-ale',
+
+    -- 'nvim-treesitter/nvim-treesitter', 
+    -- omnisharp's hilglight do the same job, even a little better
+    -- hilglight vor lua and vim I use in other neovim config.
+    -- history of undos
+    'mbbill/undotree', 
+    --gcc comment for C#
+    'tpope/vim-commentary', 
     'windwp/nvim-autopairs', 
     'kylechui/nvim-surround',
-    '4513ECHO/vim-colors-hatsunemiku', -- color 
-    'tpope/vim-fugitive', -- git wrapper
-    {'neoclide/coc.nvim', branch="master", build = "yarn install --frozen-lockfile"}, -- autocompletion
-    'SirVer/ultisnips',
-    'honza/vim-snippets',
-    'neoclide/coc-snippets',
-    {'Shougo/vimproc.vim', build = "make"},
-    'tpope/vim-dispatch', -- async complier
-    -- 'Eandrju/cellular-automaton.nvim', -- just for fun
+
+    -- git wrapper
+    'tpope/vim-fugitive', 
+
+    --colorsheme
+    '4513ECHO/vim-colors-hatsunemiku', 
+    -- Hints for shortcuts
     {
         "folke/which-key.nvim",
-        -- event = "VeryLazy",
+        event = "VeryLazy",
         init = function()
             vim.o.timeout = true
             vim.o.timeoutlen = 500
