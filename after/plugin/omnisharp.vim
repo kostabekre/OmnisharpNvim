@@ -7,6 +7,9 @@ if has('unix')
     let g:OmniSharp_server_use_mono = 1
 endif
 
+" TODO add a way to turn off when using Unity
+" Should be set to 0 when working with Unity
+" https://github.com/OmniSharp/omnisharp-vim/discussions/841
 let g:OmniSharp_server_use_net6 = 1
 
 let g:OmniSharp_popup = 0
