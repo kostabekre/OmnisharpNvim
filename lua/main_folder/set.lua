@@ -26,12 +26,12 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 vim.opt.mouse = "a"
 
-vim.o.completeopt="menuone,noinsert,noselect"
-
 vim.opt.updatetime = 50
 
-if vim.fn.has('unix') == 0 then
-    vim.opt.undodir = os.getenv("HOMEPATH") .. "/.vim/undodir"
-else
+if vim.fn.has('unix') then
     vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+else
+    vim.opt.undodir = os.getenv("HOMEPATH") .. "/.vim/undodir"
 end
+
+vim.o.completeopt="menuone,noinsert,noselect"

@@ -21,6 +21,7 @@ local wk = require("which-key")
 -- }, { prefix = "<leader>" })
 --
 wk.register({
+  f = {"<cmd>OmniSharpCodeFormat<cr>", "Code format"},
   f = {
     name = "Find",
     f = { "<cmd>Files<cr>", "Find files" }, 
@@ -49,7 +50,6 @@ wk.register({
       a = {"<cmd>OmniSharpCodeActions<cr>", "Code actions"},
       ["."] = {"<cmd>OmniSharpCodeActionRepeat<cr>", "Repeat code action"},
       c = {"<cmd>OmniSharpGlobalCodeCheck<cr>", "Global code check"},
-      ["="] = {"<cmd>OmniSharpCodeFormat<cr>", "Code format"},
   },
 
   o ={

@@ -45,7 +45,6 @@ augroup END
 
 augroup omnisharp_commands
   autocmd!
-  autocmd BufWritePre *.cs OmniSharpCodeFormat
   " " Show type information automatically when the cursor stops moving.
   " " Note that the type is echoed to the Vim command line, and will overwrite
   " " any other messages in this space including e.g. ALE linting messages.
@@ -55,6 +54,7 @@ augroup omnisharp_commands
   " g
   autocmd FileType cs nmap <silent> <buffer> <Leader>gd <Plug>(omnisharp_go_to_definition)
   " f
+  autocmd FileType cs nmap <silent> <buffer> <Leader>f <Plug>(omnisharp_code_format)
   autocmd FileType cs nmap <silent> <buffer> <Leader>fu <Plug>(omnisharp_find_usages)
   autocmd FileType cs nmap <silent> <buffer> <Leader>fi <Plug>(omnisharp_find_implementations)
   autocmd FileType cs nmap <silent> <buffer> <Leader>fs <Plug>(omnisharp_find_symbol)
@@ -76,7 +76,6 @@ augroup omnisharp_commands
   autocmd FileType cs nmap <silent> <buffer> ]] <Plug>(omnisharp_navigate_down)
   " c
   autocmd FileType cs nmap <silent> <buffer> <Leader>cc <Plug>(omnisharp_global_code_check)
-  autocmd FileType cs nmap <silent> <buffer> <Leader>c= <Plug>(omnisharp_code_format)
   " Find all code errors/warnings for the current solution and populate the quickfix window
   " Contextual code actions (uses fzf, vim-clap, CtrlP or unite.vim selector when available)
   autocmd FileType cs nmap <silent> <buffer> <Leader>ca <Plug>(omnisharp_code_actions)
